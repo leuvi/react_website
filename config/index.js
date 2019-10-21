@@ -1,0 +1,1 @@
+module.exports = env => require(`./webpack.${env.prod ? 'prod' : 'dev'}.js`)

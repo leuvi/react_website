@@ -1,0 +1,48 @@
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, .4);
+  &.child {
+    background: #fff;
+    .inner {
+      color: @main-color;
+      a {
+        color: @main-color;
+      }
+    }
+  }
+  .inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    a {
+      color: #fff;
+    }
+    .logo {
+      font-size: 24px;
+      line-height: 64px;
+    }
+    .nav {
+      display: flex;
+      font-size: 16px;
+      li {
+        line-height: 62px;
+        margin: 0 10px;
+        &.active {
+          color: @accent-color;
+          border-bottom: 2px solid @accent-color;
+          font-weight: 600;
+          a {
+            color: @accent-color;
+          }
+        }
+      }
+    }
+  }
+}

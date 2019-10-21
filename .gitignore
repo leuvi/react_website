@@ -1,0 +1,21 @@
+# 依赖包
+/node_modules
+
+# 生产环境
+/dist
+#/server
+
+# 日志文件
+/log
+
+# 特殊文件
+zip.js
+.DS_Store
+.env
+.vscode
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# zip包
+*.zip
