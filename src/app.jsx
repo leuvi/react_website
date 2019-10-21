@@ -21,21 +21,12 @@ class App extends React.PureComponent {
     return (
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/product">
-            <Product />
-          </Route>
-          <Route path="/solution">
-            <Solution />
-          </Route>
-          <Route path="/support">
-            <Support />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/product" component={Product}></Route>
+          <Route path="/product/:name" component={Product}></Route>
+          <Route path="/solution" component={Solution}></Route>
+          <Route path="/support" component={Support}></Route>
+          <Route path="/about" component={About}></Route>
         </Switch>
       </Router>
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Menu, Dropdown, Icon } from 'antd'
 import './index.less'
 
 class Header extends React.PureComponent {
@@ -14,7 +15,19 @@ class Header extends React.PureComponent {
         }, {
           name: '产品',
           link: '/product',
-          meta: 'product'
+          meta: 'product',
+          children: [
+            {
+              name: '我的产品1',
+              link: 'p1'
+            }, {
+              name: '我的产品2',
+              link: 'p2'
+            }, {
+              name: '我的产品3',
+              link: 'p3'
+            },
+          ]
         }, {
           name: '解决方案',
           link: '/solution',
@@ -31,18 +44,39 @@ class Header extends React.PureComponent {
       ]
     }
   }
+  toHome() {
+    this.props.history.push('/')
+  }
   render() {
     const headerStyle = this.props.active === 'home' ? 'header' : 'header child'
     return (
       <div className={headerStyle}>
         <div className="inner">
-          <div className="logo">React website</div>
+          <div className="logo" onClick={this.toHome.bind(this)}>React website</div>
           <ul className="nav">
             {
               this.state.nav.map((value, key) => {
                 return (
                   <li key={key} className={this.props.active === value.meta ? 'active' : ''}>
-                    <Link to={value.link}>{value.name}</Link>
+                    {
+                      value.children ?
+                        <Dropdown overlay={
+                          <Menu>
+                            {value.children.map((v, k) => {
+                              return (
+                                <Menu.Item key={k}>
+                                  <Link to={`/product/${v.link}`}>{v.name}</Link>
+                                </Menu.Item>
+                              )
+                            })}
+                          </Menu>
+                        }>
+                          <Link to={value.link}>
+                            {value.name}<Icon type="down" />
+                          </Link>
+                        </Dropdown> :
+                        <Link to={value.link}>{value.name}</Link>
+                    }
                   </li>
                 )
               })
