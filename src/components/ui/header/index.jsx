@@ -52,7 +52,7 @@ class Header extends React.PureComponent {
     return (
       <div className={headerStyle}>
         <div className="inner">
-          <div className="logo" onClick={this.toHome.bind(this)}>React website</div>
+          <div className="logo" onClick={this.toHome.bind(this)}>1React website</div>
           <ul className="nav">
             {
               this.state.nav.map((value, key) => {

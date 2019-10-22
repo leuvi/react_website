@@ -1,5 +1,5 @@
 import React from 'react'
-import Wrap from '@components/ui/wrap/index.jsx'
+import Wrap from '@components/UI/wrap/index.jsx'
 import { Carousel, Button, Icon } from 'antd'
 import './style.less'
 
@@ -19,7 +19,7 @@ class Home extends React.PureComponent {
                   <img src='http://1.sweetui.com/pic/reactwebsite/s1.jpg' />
                 </div>
                 <div className="descripe">
-                  <h3>标题1</h3>
+                  <h3>标题11222</h3>
                   <p>文字描述1文字描述1文字描述1</p>
                   <p>
                     <Button type="primary" icon="download" size="large">

@@ -1,5 +1,5 @@
 import React from 'react'
-import Wrap from '@components/ui/wrap/index.jsx'
+import Wrap from '@components/UI/wrap/index.jsx'
 import { Icon } from 'antd'
 import './style.less'
 
