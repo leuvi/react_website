@@ -6,6 +6,15 @@ import './style.less'
 class Home extends React.PureComponent {
   constructor(props) {
     super(props)
+    this.carousel = React.createRef()
+    this.prev = this.prev.bind(this)
+    this.next = this.next.bind(this)
+  }
+  prev() {
+    this.carousel.current.prev()
+  }
+  next() {
+    this.carousel.current.next()
   }
   render() {
     return (
@@ -13,7 +22,9 @@ class Home extends React.PureComponent {
         <div className="home">
           {/* 滚动图 */}
           <div className="swipe">
-            <Carousel autoplay={true}>
+            <div className="prev" onClick={this.prev}><Icon type="left" /></div>
+            <div className="next" onClick={this.next}><Icon type="right" /></div>
+            <Carousel autoplay={true} ref={this.carousel}>
               <div className="swipe-item">
                 <div className="bgimg">
                   <img src='http://1.sweetui.com/pic/reactwebsite/s1.jpg' />

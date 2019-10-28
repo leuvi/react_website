@@ -5,23 +5,23 @@ import {
 } from 'react-router-dom'
 import Loading from '../components/Loading/index.jsx'
 
-
-const Home = lazy(() => import('@views/home/index.jsx'))
-const Product = lazy(() => import('@views/product/index.jsx'))
-const Solution = lazy(() => import('@views/solution/index.jsx'))
-const Support = lazy(() => import('@views/support/index.jsx'))
-const About = lazy(() => import('@views/about/index.jsx'))
+//开发环境无需异步代码分割
+const load = function (component) {
+  return process.env.NODE_ENV == 'development' ?
+    require(`@views/${component}/index.jsx`).default :
+    lazy(() => import(`@views/${component}/index.jsx`))
+}
 
 export default function Routes() {
   return (
     <Suspense fallback={<Loading />}>
       <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route exact path="/product" component={Product}></Route>
-        <Route path="/product/:name" component={Product}></Route>
-        <Route path="/solution" component={Solution}></Route>
-        <Route path="/support" component={Support}></Route>
-        <Route path="/about" component={About}></Route>
+        <Route exact path="/" component={load('home')}></Route>
+        <Route exact path="/product" component={load('product')}></Route>
+        <Route path="/product/:name" component={load('product')}></Route>
+        <Route path="/solution" component={load('solution')}></Route>
+        <Route path="/support" component={load('support')}></Route>
+        <Route path="/about" component={load('about')}></Route>
       </Switch>
     </Suspense>
   )

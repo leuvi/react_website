@@ -35,7 +35,7 @@ module.exports = (app) => {
   //生产环境
   if (process.env.node_env == 'prod') {
     //生产环境启用log4js日志
-    app.use(log4js)
+    //app.use(log4js)
     app.use(views(path.join(process.cwd(), '/dist')))
     app.use(static(path.join(process.cwd(), '/dist/static')))
   }
